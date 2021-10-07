@@ -1,0 +1,83 @@
+<template>
+    <lightning-card title="Publisher Component" icon-name="custom:custom13">
+        <div class="slds-m-around_large" if:true={isAdd}>
+            <lightning-layout>
+                <lightning-layout-item>
+                    <lightning-combobox
+                    label="Name"
+                    value={getName}
+                    placeholder="Select Name"
+                    options={NameArr}
+                    onchange={handelName} 
+                    
+                    ></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item>
+                    <lightning-combobox
+                    label="Quantity"
+                    value={getQuantity}
+                    placeholder="Select Quantity"
+                    options={quantityArr}
+                    onchange={handelQunatity} 
+                    
+                    ></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item>
+                    <lightning-input type="number" class='amount' label="Amount"></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+            <br>
+            <lightning-button label="add" onclick={handleAdd}></lightning-button>
+        </div>
+        <div class="slds-m-around_large" if:true={isSubmit}>
+            <template  if:true={allProductEdit} for:each={allProductEdit} for:item="product" for:index="index">
+                <tr key={product}>
+                    <td><lightning-input label="index" value={product.index}></lightning-input></td>
+                    <td> <lightning-layout >
+                        <lightning-layout-item >
+                            <lightning-combobox
+                            label="Name"
+                            value={product.name}
+                            placeholder="Select Name"
+                            options={NameArr}
+                            onchange={handelName} 
+                            
+                            ></lightning-combobox>
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <lightning-combobox
+                            label="Quantity"
+                            value={product.quantity}
+                            placeholder="Select Quantity"
+                            options={quantityArr}
+                            onchange={handelQunatity} 
+                            
+                            ></lightning-combobox>
+                        </lightning-layout-item>
+                        <lightning-layout-item>  
+                            <lightning-input type="number" value={product.amount} label="Amount"></lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <lightning-icon icon-name="action:delete" data-item={product.index} onclick={handelRemove}></lightning-icon>
+                        </lightning-layout-item>
+                    </lightning-layout> 
+                </td>
+                    
+                </tr>
+            </template>
+            <br>
+            <lightning-button label="Submit" onclick={handleSumit}></lightning-button>
+
+            <!-- <lightning-button label="Send Message" onclick={handleSendMessage}></lightning-button>
+            <lightning-button class="slds-m-left_large" label="Send User Detail" onclick={handleSendUserDetail}></lightning-button> -->
+            <br/>
+            <!-- <h2>User Detail </h2>
+            <ul>
+                <li><b>User Id : </b> {userDetail.id}</li>
+                <li><b>Name : </b> {userDetail.name}</li>
+                <li><b>Salary : </b> {userDetail.salary}</li>
+                <li><b>City : </b> {userDetail.city}</li>
+            </ul> -->
+        </div>
+    </lightning-card>
+</template>

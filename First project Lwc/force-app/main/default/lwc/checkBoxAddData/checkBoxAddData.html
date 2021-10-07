@@ -1,0 +1,43 @@
+<template>
+    <lightning-card >
+          <lightning-layout class="slds-m-left_medium">
+                    <lightning-layout-item>
+                              <lightning-radio-group 
+                              title="Select Button"
+                              value={status}
+                              options={getStatus}
+                              onchange={handleRadio}
+                              
+                              ></lightning-radio-group>
+                    </lightning-layout-item>
+          </lightning-layout>
+          <template if:true={status}>
+                    <lightning-layout class="slds-m-left_medium">
+                              <lightning-layout-item  padding="around-small">
+                                        <lightning-input  type="text" label="Enter Value"  class="inputFor"></lightning-input>
+                                       
+                              </lightning-layout-item>
+                              <lightning-layout-item class="slds-m-top_large"  padding="around-small">
+                                        <lightning-button label="Add" onclick={addValue}></lightning-button>
+                              </lightning-layout-item>
+                              <lightning-layout-item  padding="around-small">
+                                        <lightning-combobox 
+                                        label="Add Value" 
+                                        placeholder="add Value"
+                                        value={getText}
+                                        options={dropDownArr}
+                                         ></lightning-combobox>
+                              </lightning-layout-item>
+                    </lightning-layout>
+          </template>
+          <lightning-checkbox-group 
+                    options={checkBoxValue}
+                    value={getcheckBox}
+                    onchange={handleChange}
+                    checked={checkedvalue}
+                    
+                    >
+          </lightning-checkbox-group>
+
+    </lightning-card>
+</template>

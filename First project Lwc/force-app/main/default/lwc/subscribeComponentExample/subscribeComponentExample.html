@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Subscribe Component" icon-name="custom:custom14">
+        <div class="slds-m-around_large">
+            <lightning-layout>
+                <lightning-layout-item>
+                    <lightning-combobox
+                    label="Name"
+                    value={getName}
+                    placeholder="Select Name"
+                    options={NameArr} 
+                    
+                    ></lightning-combobox>
+                    <lightning-combobox
+                    label="Quantity"
+                    value={getQuantity}
+                    placeholder="Select Quantity"
+                    options={quantityArr} 
+                    
+                    ></lightning-combobox>
+                   <lightning-input type="number" label="Amount"  value={amount}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+            <br>
+            <lightning-button label="Submit" onclick={handelSubmit}></lightning-button>
+            <lightning-button variant="destructive" label="Subscribe" onclick={handleSubscribe}></lightning-button>
+            <!-- <p><b> Messsage from Publisher : </b> {publisherMessage} </p>
+            <br/>
+             <lightning-button variant="destructive" label="Subscribe" onclick={handleSubscribe}></lightning-button>            
+            <br/>
+           <lightning-input type="text" label="User Id" value={userDetail.id} class="forInput"></lightning-input>
+            <lightning-input type="text" label="User Name" value={userDetail.name} class="forInput"></lightning-input>
+            <lightning-input type="number" label="User Salary" value={userDetail.salary} class="forInput"></lightning-input>
+            <lightning-input type="text" label="User City" value={userDetail.city} class="forInput"></lightning-input>
+            <br/>
+            <lightning-button label="Update" onclick={HanldeUpdate}></lightning-button> -->
+        </div>
+    </lightning-card>
+</template>

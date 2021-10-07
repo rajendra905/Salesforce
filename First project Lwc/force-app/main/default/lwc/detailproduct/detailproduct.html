@@ -1,0 +1,17 @@
+<template>
+    <table class="slds-m-left_medium">
+        <tr><td><h1>Detail Product</h1></td></tr>
+        <tr><td><h2><b>Product Name </b>{name}</h2></td></tr>
+        <tr><td> <img src={url}></td></tr>
+        <tr>
+            <td><b>Price</b>:<s>999</s>{price}</td>
+            <td><lightning-button label="Add" onclick={addProduct}></lightning-button></td>
+        </tr>
+        <tr>
+            <td>
+                <lightning-textarea value={description}></lightning-textarea>
+            </td>
+        </tr>
+    </table>
+     
+</template>

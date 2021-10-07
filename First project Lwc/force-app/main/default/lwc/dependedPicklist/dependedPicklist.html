@@ -1,0 +1,38 @@
+<template>
+	<lightning-card title="Depened Picklist">
+		<lightning-combobox
+			label="Country"
+			value={getcountry}
+			placeholder="Select Country"
+			options={countryArr}
+			onchange={handleCountry} 
+			class="slds-m-left_medium"
+			></lightning-combobox>
+		<lightning-combobox
+			label="State"
+			value={getstate}
+			placeholder="Select State"
+			options={stateOption}
+			onchange={handleState} 
+			class="slds-m-left_medium"
+		></lightning-combobox>
+		<lightning-combobox
+			name="City"
+			label="City"
+			value={getcity}
+			placeholder="Select City"
+			options={cityOption}
+			onchange={handlecity} 
+			class="slds-m-left_medium"
+		></lightning-combobox>
+		<lightning-combobox
+			name="Pincode"
+			label="Pincode"
+			value={pincode}
+			placeholder="Select City"
+			options={pinCodesOption}
+			class="slds-m-left_medium"
+		></lightning-combobox>
+		
+	</lightning-card>
+</template>

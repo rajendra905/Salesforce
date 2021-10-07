@@ -1,0 +1,21 @@
+<template>
+   <lightning-card title="Array with indexing">
+      <ol class="slds-m-left_medium" start="1">
+        <template for:each={dataName} for:item="name" for:index=i>
+            <li key={name.index}>{name.index} &nbsp; &nbsp; {name.Name}</li>
+        </template> 
+      </ol>
+      <lightning-tabset>
+         <lightning-tab label="Item One">
+             One Content !
+         </lightning-tab>
+         <lightning-tab label="Item Two" title="2nd tab extended title">
+             Two Content !
+         </lightning-tab>
+         <lightning-tab label="Item Three">
+             Three Content !
+         </lightning-tab>
+     </lightning-tabset>
+
+   </lightning-card>
+</template>

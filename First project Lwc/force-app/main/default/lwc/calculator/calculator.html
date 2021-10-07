@@ -1,0 +1,20 @@
+<template>
+<lightning-card title="Calculator">
+<div class="slds-m-left_medium">
+    <lightning-input type="number" class="firstvalue" label="First Value"></lightning-input>
+    <lightning-input type="number" class="secondvalue" label="Second Value"></lightning-input>
+    <hr>
+    <lightning-button label="+" onclick={add}></lightning-button>
+    <lightning-button label="-" onclick={subtract} class="slds-m-left_medium"></lightning-button>
+    <lightning-button label="*" onclick={multiply} class="slds-m-left_medium"></lightning-button>
+    <lightning-button label="/" onclick={division} class="slds-m-left_medium"></lightning-button>
+    <lightning-button label="%" onclick={moduls} class="slds-m-left_medium"></lightning-button>
+    <p  style="color:blue; " id="myid">Additon of {data.firstvalue} and {data.secondvalue} = <span style="color: brown;">{data.add} </span></p>
+    <p style="color: lightcoral;">Subtraction of {data.firstvalue} and {data.secondvalue} = <span style="color: slategray;">{data.sub}</span> </p>
+    <p style="color: orangered;">Multiplication of {data.firstvalue} and {data.secondvalue} = <span style="color: tomato;">{data.mul}</span> </p>
+    <p style="color: bisque;">Division of {data.firstvalue} and {data.secondvalue} =<span style="color: violet;">  {data.div} </span></p>
+    <p style="color: violet;">Modulus of {data.firstvalue} and {data.secondvalue} = <span style="color:teal;">{data.mod}</span> </p>
+</div>
+
+</lightning-card>
+</template>

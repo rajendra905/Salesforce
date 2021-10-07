@@ -1,0 +1,89 @@
+<template>
+    <lightning-card class="slds-m-left_large">
+        <lightning-combobox
+        name="Account"
+        label="Account Name"
+        placeholder="Choose Account"
+        value={getName}
+        onchange={handleName}
+        options={getAccountName}>
+    </lightning-combobox>
+    <hr>
+    <hr>
+    <lightning-button label="New" style='float:right;' class="slds-m-right_large" onclick={newModel}></lightning-button>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr>
+                <th>Action</th>
+               <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Fax</th>
+                <th>Birthdate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={allcontactdata} for:item="contact">
+                <tr key={contact}>
+                    <td>
+                        <lightning-input type="checkBox" value={contact.Id} onchange={slectedContact}></lightning-input>
+                    </td>
+                    <td >{contact.Name}</td>
+                    <td>{contact.Email}</td>
+                    <td>{contact.Phone}</td>
+                    <td>{contact.Fax}</td>
+                    <td>{contact.Birthdate}</td>
+                </tr>
+            </template>
+        </tbody>
+    </table> 
+    <lightning-button label="Delete" style='float:right;' class="slds-m-right_large" onclick={deleteRecord}></lightning-button>
+    </lightning-card>
+
+
+
+    <template if:true={isNewModel}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-21" aria-modal="true" aria-describedby="modal-content-id-4" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModalView}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-21" class="slds-text-heading_medium slds-hyphenate">New Contact</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-4" style="text-align: center;">
+                    <lightning-record-edit-form object-api-name="Contact"
+                                onsuccess={handleSuccess} onsubmit ={handleSubmit}>
+                            <lightning-messages>
+                            </lightning-messages>
+                            <lightning-output-field field-name="ContactId">
+                            </lightning-output-field>
+                            <lightning-input-field field-name="LastName">
+                            </lightning-input-field>
+                            <lightning-input-field field-name="AccountId">
+                            </lightning-input-field>
+                            <lightning-input-field field-name="Phone">
+                            </lightning-input-field>
+                            <lightning-input-field field-name="Birthdate">
+                            </lightning-input-field>
+                            <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Save">
+                            </lightning-button>
+                    </lightning-record-edit-form>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <!-- <footer class="slds-modal__footer">
+                     <button class="slds-button slds-button_neutral" onclick={closeModalView} title="Cancel">Cancel</button>
+                    
+                </footer> -->
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

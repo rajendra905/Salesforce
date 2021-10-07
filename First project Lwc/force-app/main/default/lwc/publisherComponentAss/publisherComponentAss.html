@@ -1,0 +1,22 @@
+<template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr>
+                <th>Action</th>
+               <th >Name</th>
+                <th >Email</th>
+                <th>Birthdate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={allcontactdata} for:item="contact">
+                <tr key={contact}>
+                    <td><lightning-input type="checkBox" value={contact.Id} onchange={selectedContact} ></lightning-input></td>
+                    <td>{contact.Name}</td>
+                    <td >{contact.Email}</td>
+                    <td >{contact.Birthdate}</td>
+                </tr>
+            </template>
+        </tbody>
+    </table> 
+</template>

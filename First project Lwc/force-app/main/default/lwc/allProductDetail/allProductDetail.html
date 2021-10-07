@@ -1,0 +1,43 @@
+<template>
+          <lightning-card title="Item List" >
+              <div class="slds-m-left_large">
+                  <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                      <thead>
+                          <tr>
+                            <th>Sr No.</th>
+                          <th >Name</th>
+                          <th>Quantity</th>
+                          <th>Amount</th>
+                          </tr>
+                      </thead>
+                  <tbody>
+                  <template if:true={aLLproductList} for:each={aLLproductList} for:item="product">
+                      <tr key={product}>
+                          <td>{product.index}</td>
+                          <td >{product.name}</td>
+                          <td >{product.quantity}</td>
+                          <td >{product.amount}</td>
+
+                      </tr>
+                      
+                  </template>
+                 
+              </tbody>
+            
+          </table>
+        <br>
+        <br>
+        <br>
+    <br>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <tr>
+                <td>Grand Total</td>
+                <td>{Total}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="checkbox" onchange={handelChangeData} class="accept">If you want to do any changes</td>
+            </tr>
+        </table>
+      </div>
+          </lightning-card>
+      </template>

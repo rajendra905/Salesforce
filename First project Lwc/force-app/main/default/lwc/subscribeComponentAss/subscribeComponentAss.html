@@ -1,0 +1,82 @@
+<template>
+    <lightning-card title="Details">
+        <lightning-tabset>
+           <lightning-tab label="Account">
+               Account
+               <table style="padding: 12px;">
+                <tr>
+                    <td>Account Name : {allcontactdata.AccountName}</td>
+                </tr>
+           
+                <tr>
+                    <td>Rating : {allcontactdata.Rating}</td>
+                </tr>
+            
+                <tr>
+                    <td>Phone : {allcontactdata.AccountPhone}</td>
+                </tr>
+           
+                <tr>
+                    <td>Coustomer Priority : {allcontactdata.Coustomer_priority}</td>
+                </tr>
+                
+            </table>
+           </lightning-tab>
+           
+           <lightning-tab label="Contact" >
+            <table>
+                <tr>
+                    <td>Contact Name : {allcontactdata.Name}</td>
+                    </tr>
+                <tr>
+                    <td>Email : {allcontactdata.Email}</td>
+                </tr>
+                <tr>
+                    <td>Birthday : {allcontactdata.Birthdate}</td>
+                </tr>
+                <tr>
+                    <td>Phone : {allcontactdata.Phone}</td>
+                </tr>
+                <tr>
+                    <td>Email : {allcontactdata.Fax}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <lightning-button label="Delete" style='float:right;' class="slds-m-right_large" onclick={deleteRecord}></lightning-button>
+                    </td>
+                </tr>
+            </table>
+           
+
+           </lightning-tab>
+           <lightning-tab label="Task" class="slds-m-left_large">
+              Task
+              <label>Subject</label>
+              <lightning-input type="text" class="subject"></lightning-input>
+              <label>Priority</label>
+              <lightning-input type="text" class="priority"></lightning-input>
+              <lightning-combobox 
+                        name="Contact"
+                        label="Contact Name"
+                        placeholder="Choose Contact"
+                        value={getConName}
+                        options={getContactName}
+                        onchange={handleContactname}
+                        >
+                        
+                        </lightning-combobox>
+    
+              <lightning-combobox 
+                        name="Account"
+                        label="Account Name"
+                        placeholder="Choose Account"
+                        value={getAccName}
+                        onchange={handleAccountname}
+                        options={getAccountName}>
+            </lightning-combobox>
+            <lightning-button label="Save"  onclick={SaveRecord}></lightning-button>
+           </lightning-tab>
+       </lightning-tabset>
+  
+     </lightning-card>
+</template>
